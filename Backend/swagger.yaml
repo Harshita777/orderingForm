@@ -1,0 +1,60 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "FormData API"
+paths:
+  /api/formdata:
+    post:
+      summary: "Create FormData"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "formData"
+          description: "FormData object"
+          required: true
+          schema:
+            $ref: "#/components/schemas/FormData"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid input"
+  /api/formdata/get:
+    get:
+      summary: "Get FormData"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "Successful operation"
+        "400":
+          description: "Invalid input"
+components:
+  schemas:
+    FormData:
+      type: "object"
+      properties:
+        organizationName:
+          type: "string"
+          default: "string"
+        orderingNodes:
+          type: "number"
+          default: 10
+        channelName:
+          type: "string"
+          default: "string"
+        domain:
+          type: "string"
+          default: "string"
+        maxMessageCount:
+          type: "number"
+          default: 10
+        absoluteMaxBytes:
+          type: "number"
+          default: 10
+        preferredMaxBytes:
+          type: "number"
+          default: 10
